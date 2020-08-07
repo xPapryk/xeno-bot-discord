@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "14.6.0.x"
-  }
+  },
   "description": "Open-source Hypixel Discord BOT (https://github.com/tinopai/hypixelbot)",
   "main": "index.js",
   "scripts": {
