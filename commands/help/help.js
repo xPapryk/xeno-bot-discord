@@ -1,0 +1,75 @@
+const { MessageEmbed } = require("discord.js");
+const { string } = require("mathjs");
+
+module.exports = {
+    name: "help",
+    category: "help",
+    description: "Returns all commands, or one specific command info",
+    run: async (client, message, args) => {
+
+        if(args[0]) {
+            return getCMD(client, message, args[0])
+        } else {
+            
+            let embed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTimestamp()
+            .setFooter("Powered By Xeno", client.user.avatarURL())
+            .setTitle("Help")
+            .setDescription("This is a list of commands you can use. You can get more info about a specific command by using ``help <command>`` ``(e.g. help say)``.")
+            .addField("Fun", "``8ball`` ``advice`` ``asciify`` ``clyde`` ``decrypt`` ``didumean`` ``emoji`` ``encrypt`` ``facts`` ``flip`` ``fml`` ``gayrate`` ``howdumb`` ``kill`` ``meme`` ``morse`` ``oof`` ``programming`` ``rate`` ``roll`` ``slap`` ``trump`` ``yomama``")
+            .addField("Games", "``fortnite`` ``server``")
+            .addField("Hypixel", "``bedwars`` ``skywars`` ``status``")
+            .addField("Image Manipulation", "``deepfry`` ``phtext`` ``supreme``")
+            .addField("Utilities", "``calc`` ``hex`` ``covid-19`` ``dm`` ``gif`` ``bin`` ``instagram`` ``length`` ``ping`` ``say`` ``support`` ``weather``")
+            .addField("Server and User Info", "``botinfo`` ``serverinfo`` ``avatar`` ``userinfo``")
+            .addField("Moderation", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam``")
+
+            message.channel.send(embed)
+        }
+
+    }
+}
+
+function getAll(client, message) {
+
+    const embed = new MessageEmbed()
+    .setColor("RANDOM")
+
+    const commands = (category) => {
+        return client.commands
+            .filter(cmd => cmd.category === category)
+            .map(cmd => `- \`${cmd.name}\``)   
+            .join("\n")
+        }
+
+    const info = client.categories
+        .map(cat => `**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
+        .reduce((string, category) => string + "\n" + category)
+
+    return message.channel.send(embed.setDescription(info))
+
+}
+
+function getCMD(client, message, input) {
+    
+    const embed = new MessageEmbed()
+
+    const cmd = client.commands.get(input.toLowerCase())
+
+    let info = `No information found for command **${input.toLowerCase()}**`
+
+    if(!cmd) {
+        return message.channel.send(embed.setColor("RANDOM").setDescription(info))
+    }
+
+    if(cmd.name) info = `**Command name:** ${cmd.name}`;
+    if(cmd.description) info += `\n**Description:** ${cmd.description}`;
+    if(cmd.usage) {
+        info += `\n**Usage:** ${cmd.usage}`;
+        embed.setFooter(`Syntax: <> = required, [] = optional`);
+    }
+
+    return message.channel.send(embed.setColor("RANDOM").setDescription(info))
+
+}

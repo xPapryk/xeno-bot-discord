@@ -1,0 +1,128 @@
+module.exports = {
+    name: "bedwars",
+    category: "hypixel",
+    description: "Get a player's Bedwars Statistics",
+    usage: "bedwars <player>",
+    run: async (client, message, args) => {
+
+    const { Client, MessageEmbed, Collection } = require('discord.js');
+    
+    const hypixel = require("hypixel-api-nodejs");
+    var key = '2441ceef-7c75-4fd8-a6c8-b6f093a2ca94';   //Hypixel Api Key
+
+    hypixel.getPlayerByName(key, `${args[0]}`).then(player => {   
+        var bw = player.player.stats.Bedwars;   //Get player's Bedwars Statistics
+
+        function minecraftColorToHex(colorname) {
+            switch(colorname) {
+                case "BLACK":
+                    return "#000000";
+                case "DARK_BLUE":
+                    return "#0100BD";
+                case "DARK_GREEN":
+                    return "#00BF00";
+                case "DARK_AQUA":
+                    return "#00BDBD";
+                case "DARK_RED":
+                    return "#BE0000";
+                case "DARK_PURPLE":
+                    return "#BC01BC";
+                case "GOLD":
+                    return "#DB9F37";
+                case "GRAY":
+                    return "#BEBDBE";
+                case "DARK_GRAY":
+                    return "#3F3F3F";
+                case "BLUE":
+                    return "#3F3FFE";
+                case "GREEN":
+                    return "#3FFE3E";
+                case "AQUA":
+                    return "#40FCFF";
+                case "RED":
+                    return "#FF3E3F";
+                case "LIGHT_PURPLE":
+                    return "#FE3FFE";
+                case "YELLOW":
+                    return "#FEFD3F";
+                case "WHITE":
+                    return "#FFFFFF";
+            }
+        }
+
+        let tinodata = { "rank": {}, "user": {}, "pit": {} };
+            hypixel.getPlayerByName(key, args[0]).then(user => {
+                if(!user.success || user.success == false || user.player == null || user.player == undefined || !user.player) return sendErrorEmbed(message.channel.send(`Unknown Player`, `Player has no data in Hypixel's Database`));
+                    switch(user.player.newPackageRank) {
+                        case "MVP_PLUS":
+                            tinodata.rank.displayName = "[MVP+]";
+                            tinodata.rank.name = "MVP+";
+                            tinodata.rank.color = minecraftColorToHex("AQUA");
+                            break;
+                        case "MVP":
+                            tinodata.rank.displayName = "[MVP]";
+                            tinodata.rank.name = "MVP";
+                            tinodata.rank.color = minecraftColorToHex("AQUA");
+                            break;
+                        case "VIP_PLUS":
+                            tinodata.rank.displayName = "[VIP+]";
+                            tinodata.rank.name = "VIP+";
+                            tinodata.rank.color = minecraftColorToHex("GREEN");
+                            break;
+                        case "VIP":
+                            tinodata.rank.displayName = "[VIP]";
+                            tinodata.rank.name = "VIP";
+                            tinodata.rank.color = minecraftColorToHex("GREEN");
+                            break;
+                        default:
+                            tinodata.rank.displayName = "";
+                            tinodata.rank.name = "None";
+                            tinodata.rank.color = minecraftColorToHex("GRAY");
+                    }
+                    if(user.player.monthlyPackageRank == "SUPERSTAR") {
+                        tinodata.rank.displayName = "[MVP++]";
+                        tinodata.rank.name = "MVP++";
+                        tinodata.rank.color = minecraftColorToHex("GOLD");
+                    }
+                    if(user.player.rankPlusColor) tinodata.rank.color = minecraftColorToHex(user.player.rankPlusColor);
+
+        const embedHelper = { 
+            footer: {
+            text: 'Powered By Xeno',                                           
+            image: {
+                'green': 'https://cdn.discordapp.com/emojis/722990201307398204.png?v=1',
+                'red':   'https://cdn.discordapp.com/emojis/722990201302941756.png?v=1'
+                }
+            } 
+        };
+    
+        let bEmbed = new MessageEmbed()
+        .setColor(`${tinodata.rank.color}`)
+        .setTitle(`${tinodata.rank.displayName} ${args[0]}`)
+        .setURL(`https://namemc.com/search?q=${player.player.displayname}`)
+        .setThumbnail("https://i.imgur.com/O9Dk8Vi.png")
+        .setDescription(`${args[0]}'s Bedwars stats.`)
+        .setTimestamp()
+        .setFooter(embedHelper.footer.text, `${client.user.avatarURL()}`)
+        if(!user.player.stats.Bedwars) {
+            embed.setDescription(`**Bedwars**\nCould not retrieve **Bedwars** Stats for this user, maybe he/she never joined a Bedwars game!`);
+            return message.channel.send(embed);
+        }
+        bEmbed.addFields(
+            {name: `**Games Played**`, value: `${user.player.stats.Bedwars.games_played_bedwars_1}`, inline: true},
+            {name: `**Wins**`, value: `${user.player.stats.Bedwars.wins_bedwars}`, inline: true},
+            {name: `**Kills**`, value: `${user.player.stats.Bedwars.kills_bedwars}`, inline: true},
+            {name: `**Final Kills**`, value: `${user.player.stats.Bedwars.final_kills_bedwars}`, inline: true},
+            {name: `**Games Lost**`, value: `${user.player.stats.Bedwars.losses_bedwars}`, inline: true},
+            {name: `**Deaths**`, value: `${user.player.stats.Bedwars.deaths_bedwars}`, inline: true},
+            {name: `**Beds Broken**`, value: `${user.player.stats.Bedwars.beds_broken_bedwars}`, inline: true},
+            {name: `**Beds Lost**`, value: `${user.player.stats.Bedwars.beds_lost_bedwars}`, inline: true},
+            {name: `**Coins**`, value: `${user.player.stats.Bedwars.coins}`, inline: true}
+        )
+
+        message.channel.send(bEmbed);
+
+    });
+
+    })
+}}
