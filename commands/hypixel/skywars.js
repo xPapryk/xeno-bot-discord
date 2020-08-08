@@ -1,3 +1,5 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
     name: "skywars",
     category: "hypixel",
@@ -5,13 +7,11 @@ module.exports = {
     usage: "skywars <player>",
     run: async (client, message, args) => {
 
-        const { Client, MessageEmbed, Collection } = require('discord.js');
-    
-    const hypixel = require("hypixel-api-nodejs");
-    var key = '2441ceef-7c75-4fd8-a6c8-b6f093a2ca94';   //Hypixel Api Key
+        const uUrl = `https://api.mojang.com/users/profiles/minecraft/${args[0]}`;
+        const uRes = await fetch(uUrl).then(uUrl => uUrl.json());
 
-    hypixel.getPlayerByName(key, `${args[0]}`).then(player => {   
-        var bw = player.player.stats.Bedwars;   //Get player's Bedwars Statistics
+        const url = `https://api.hypixel.net/player?key=2441ceef-7c75-4fd8-a6c8-b6f093a2ca94&uuid=${uRes.id}`;
+        const res = await fetch(url).then(url => url.json());
 
         function minecraftColorToHex(colorname) {
             switch(colorname) {
@@ -51,9 +51,8 @@ module.exports = {
         }
 
         let tinodata = { "rank": {}, "user": {}, "pit": {} };
-            hypixel.getPlayerByName(key, args[0]).then(user => {
-                if(!user.success || user.success == false || user.player == null || user.player == undefined || !user.player) return sendErrorEmbed(message.channel.send(`Unknown Player`, `Player has no data in Hypixel's Database`));
-                    switch(user.player.newPackageRank) {
+                if(!res.success || res.success == false || res.player == null || res.player == undefined || !res.player) return sendErrorEmbed(message.channel.send(`Unknown Player`, `Player has no data in Hypixel's Database`));
+                    switch(res.player.newPackageRank) {
                         case "MVP_PLUS":
                             tinodata.rank.displayName = "[MVP+]";
                             tinodata.rank.name = "MVP+";
@@ -79,48 +78,35 @@ module.exports = {
                             tinodata.rank.name = "None";
                             tinodata.rank.color = minecraftColorToHex("GRAY");
                     }
-                    if(user.player.monthlyPackageRank == "SUPERSTAR") {
+                    if(res.player.monthlyPackageRank == "SUPERSTAR") {
                         tinodata.rank.displayName = "[MVP++]";
                         tinodata.rank.name = "MVP++";
                         tinodata.rank.color = minecraftColorToHex("GOLD");
                     }
-                    if(user.player.rankPlusColor) tinodata.rank.color = minecraftColorToHex(user.player.rankPlusColor);
-
-        const embedHelper = { 
-            footer: {
-            text: 'Powered By Xeno',                                           
-            image: {
-                'green': 'https://cdn.discordapp.com/emojis/722990201307398204.png?v=1',
-                'red':   'https://cdn.discordapp.com/emojis/722990201302941756.png?v=1'
-                }
-            } 
-        };
+                    if(res.player.rankPlusColor) tinodata.rank.color = minecraftColorToHex(res.player.rankPlusColor);
     
         let sEmbed = new MessageEmbed()
         .setColor(`${tinodata.rank.color}`)
         .setTitle(`${tinodata.rank.displayName} ${args[0]}`)
-        .setURL(`https://namemc.com/search?q=${player.player.displayname}`)
+        .setURL(`https://namemc.com/search?q=${args[0]}`)
         .setThumbnail("https://i.imgur.com/Din9Uch.png")
         .setDescription(`${args[0]}'s Skywars stats.`)
         .setTimestamp()
-        .setFooter(embedHelper.footer.text, `${client.user.avatarURL()}`)
-        if(!user.player.stats.SkyWars) {
+        .setFooter("Powered By Xeno", client.user.avatarURL())
+        if(!res.player.stats.SkyWars) {
             embed.setDescription(`**Skywars**\nCould not retrieve **Skywars** Stats for this user, maybe he/she never joined a Skywars game!`);
             return message.channel.send(embed);
         }
         sEmbed.addFields(
-            {name: `**Games Played**`, value: `${player.player.stats.SkyWars.games}`, inline: true},
-            {name: `**Wins Solo**`, value: `${player.player.stats.SkyWars.wins_solo}`, inline: true},
-            {name: `**Wins Teams**`, value: `${player.player.stats.SkyWars.wins_team}`, inline: true},
-            {name: `**Kills**`, value: `${player.player.stats.SkyWars.kills}`, inline: true},
-            {name: `**Games Lost**`, value: `${player.player.stats.SkyWars.losses}`, inline: true},
-            {name: `**Deaths**`, value: `${player.player.stats.SkyWars.deaths}`, inline: true}
+            {name: `**Games Played**`, value: `${res.player.stats.SkyWars.games}`, inline: true},
+            {name: `**Wins Solo**`, value: `${res.player.stats.SkyWars.wins_solo}`, inline: true},
+            {name: `**Wins Teams**`, value: `${res.player.stats.SkyWars.wins_team}`, inline: true},
+            {name: `**Kills**`, value: `${res.player.stats.SkyWars.kills}`, inline: true},
+            {name: `**Games Lost**`, value: `${res.player.stats.SkyWars.losses}`, inline: true},
+            {name: `**Deaths**`, value: `${res.player.stats.SkyWars.deaths}`, inline: true}
         )
 
         message.channel.send(sEmbed);
-            });
-
-        })
 
     }
 }

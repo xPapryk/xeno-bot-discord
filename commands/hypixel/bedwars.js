@@ -11,8 +11,6 @@ module.exports = {
         const uUrl = `https://api.mojang.com/users/profiles/minecraft/${args[0]}`;
         const uRes = await fetch(uUrl).then(uUrl => uUrl.json());
 
-        console.log(uRes.id);
-
         const url = `https://api.hypixel.net/player?key=2441ceef-7c75-4fd8-a6c8-b6f093a2ca94&uuid=${uRes.id}`;
         const res = await fetch(url).then(url => url.json());
 
