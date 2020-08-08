@@ -13,9 +13,10 @@ module.exports = {
 
         console.log(uRes.id);
 
-        const url = `https://api.hypixel.net/player?key=2441ceef-7c75-4fd8-a6c8-b6f093a2ca94&uuid=${uRes.id}`
+        const url = `https://api.hypixel.net/player?key=2441ceef-7c75-4fd8-a6c8-b6f093a2ca94&uuid=${uRes.id}`;
+        const res = await fetch(url).then(url => url.json());
 
-        /*function minecraftColorToHex(colorname) {
+        function minecraftColorToHex(colorname) {
             switch(colorname) {
                 case "BLACK":
                     return "#000000";
@@ -53,8 +54,8 @@ module.exports = {
         }
 
         let tinodata = { "rank": {}, "user": {}, "pit": {} };
-                if(!user.success || user.success == false || user.player == null || user.player == undefined || !user.player) return sendErrorEmbed(message.channel.send(`Unknown Player`, `Player has no data in Hypixel's Database`));
-                    switch(user.player.newPackageRank) {
+                if(!res.success || res.success == false || res.player == null || res.player == undefined || !res.player) return sendErrorEmbed(message.channel.send(`Unknown Player`, `Player has no data in Hypixel's Database`));
+                    switch(res.player.newPackageRank) {
                         case "MVP_PLUS":
                             tinodata.rank.displayName = "[MVP+]";
                             tinodata.rank.name = "MVP+";
@@ -80,12 +81,12 @@ module.exports = {
                             tinodata.rank.name = "None";
                             tinodata.rank.color = minecraftColorToHex("GRAY");
                     }
-                    if(user.player.monthlyPackageRank == "SUPERSTAR") {
+                    if(res.player.monthlyPackageRank == "SUPERSTAR") {
                         tinodata.rank.displayName = "[MVP++]";
                         tinodata.rank.name = "MVP++";
                         tinodata.rank.color = minecraftColorToHex("GOLD");
                     }
-                    if(user.player.rankPlusColor) tinodata.rank.color = minecraftColorToHex(user.player.rankPlusColor);
+                    if(res.player.rankPlusColor) tinodata.rank.color = minecraftColorToHex(res.player.rankPlusColor);
     
         let bEmbed = new MessageEmbed()
         .setColor(`${tinodata.rank.color}`)
@@ -94,21 +95,21 @@ module.exports = {
         .setThumbnail("https://i.imgur.com/O9Dk8Vi.png")
         .setDescription(`${args[0]}'s Bedwars stats.`)
         .setTimestamp()
-        .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
-        if(!user.player.stats.Bedwars) {
+        .setFooter("Powered By Xeno", `${client.res.avatarURL()}`)
+        if(!res.player.stats.Bedwars) {
             embed.setDescription(`**Bedwars**\nCould not retrieve **Bedwars** Stats for this user, maybe he/she never joined a Bedwars game!`);
             return message.channel.send(embed);
         }
         bEmbed.addFields(
-            {name: `**Games Played**`, value: `${user.player.stats.Bedwars.games_played_bedwars_1}`, inline: true},
-            {name: `**Wins**`, value: `${user.player.stats.Bedwars.wins_bedwars}`, inline: true},
-            {name: `**Kills**`, value: `${user.player.stats.Bedwars.kills_bedwars}`, inline: true},
-            {name: `**Final Kills**`, value: `${user.player.stats.Bedwars.final_kills_bedwars}`, inline: true},
-            {name: `**Games Lost**`, value: `${user.player.stats.Bedwars.losses_bedwars}`, inline: true},
-            {name: `**Deaths**`, value: `${user.player.stats.Bedwars.deaths_bedwars}`, inline: true},
-            {name: `**Beds Broken**`, value: `${user.player.stats.Bedwars.beds_broken_bedwars}`, inline: true},
-            {name: `**Beds Lost**`, value: `${user.player.stats.Bedwars.beds_lost_bedwars}`, inline: true},
-            {name: `**Coins**`, value: `${user.player.stats.Bedwars.coins}`, inline: true}
+            {name: `**Games Played**`, value: `${res.player.stats.Bedwars.games_played_bedwars_1}`, inline: true},
+            {name: `**Wins**`, value: `${res.player.stats.Bedwars.wins_bedwars}`, inline: true},
+            {name: `**Kills**`, value: `${res.player.stats.Bedwars.kills_bedwars}`, inline: true},
+            {name: `**Final Kills**`, value: `${res.player.stats.Bedwars.final_kills_bedwars}`, inline: true},
+            {name: `**Games Lost**`, value: `${res.player.stats.Bedwars.losses_bedwars}`, inline: true},
+            {name: `**Deaths**`, value: `${res.player.stats.Bedwars.deaths_bedwars}`, inline: true},
+            {name: `**Beds Broken**`, value: `${res.player.stats.Bedwars.beds_broken_bedwars}`, inline: true},
+            {name: `**Beds Lost**`, value: `${res.player.stats.Bedwars.beds_lost_bedwars}`, inline: true},
+            {name: `**Coins**`, value: `${res.player.stats.Bedwars.coins}`, inline: true}
         )
 
         message.channel.send(bEmbed);*/
