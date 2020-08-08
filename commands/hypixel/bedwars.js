@@ -95,7 +95,7 @@ module.exports = {
         .setThumbnail("https://i.imgur.com/O9Dk8Vi.png")
         .setDescription(`${args[0]}'s Bedwars stats.`)
         .setTimestamp()
-        .setFooter("Powered By Xeno", `${client.res.avatarURL()}`)
+        .setFooter("Powered By Xeno", client.res.avatarURL())
         if(!res.player.stats.Bedwars) {
             embed.setDescription(`**Bedwars**\nCould not retrieve **Bedwars** Stats for this user, maybe he/she never joined a Bedwars game!`);
             return message.channel.send(embed);
