@@ -1,3 +1,6 @@
+const { Client, MessageEmbed, Collection } = require('discord.js');
+const fetch = require("node-fetch");
+
 module.exports = {
     name: "bedwars",
     category: "hypixel",
@@ -5,13 +8,12 @@ module.exports = {
     usage: "bedwars <player>",
     run: async (client, message, args) => {
 
-    const { Client, MessageEmbed, Collection } = require('discord.js');
-    
-    const hypixel = require("hypixel-api-nodejs");
-    var key = '2441ceef-7c75-4fd8-a6c8-b6f093a2ca94';   //Hypixel Api Key
+        const uUrl = `https://api.mojang.com/users/profiles/minecraft/${args[0]}`;
+        const uRes = await fetch(uUrl).then(uUrl => uUrl.json());
 
-    hypixel.getPlayerByName(key, `${args[0]}`).then(player => {   
-        var bw = player.player.stats.Bedwars;   //Get player's Bedwars Statistics
+        console.log(uRes.id);
+
+        const url = `https://api.hypixel.net/player?key=2441ceef-7c75-4fd8-a6c8-b6f093a2ca94&uuid=${uRes.id}`
 
         function minecraftColorToHex(colorname) {
             switch(colorname) {
@@ -51,7 +53,6 @@ module.exports = {
         }
 
         let tinodata = { "rank": {}, "user": {}, "pit": {} };
-            hypixel.getPlayerByName(key, args[0]).then(user => {
                 if(!user.success || user.success == false || user.player == null || user.player == undefined || !user.player) return sendErrorEmbed(message.channel.send(`Unknown Player`, `Player has no data in Hypixel's Database`));
                     switch(user.player.newPackageRank) {
                         case "MVP_PLUS":
@@ -85,16 +86,6 @@ module.exports = {
                         tinodata.rank.color = minecraftColorToHex("GOLD");
                     }
                     if(user.player.rankPlusColor) tinodata.rank.color = minecraftColorToHex(user.player.rankPlusColor);
-
-        const embedHelper = { 
-            footer: {
-            text: 'Powered By Xeno',                                           
-            image: {
-                'green': 'https://cdn.discordapp.com/emojis/722990201307398204.png?v=1',
-                'red':   'https://cdn.discordapp.com/emojis/722990201302941756.png?v=1'
-                }
-            } 
-        };
     
         let bEmbed = new MessageEmbed()
         .setColor(`${tinodata.rank.color}`)
@@ -103,7 +94,7 @@ module.exports = {
         .setThumbnail("https://i.imgur.com/O9Dk8Vi.png")
         .setDescription(`${args[0]}'s Bedwars stats.`)
         .setTimestamp()
-        .setFooter(embedHelper.footer.text, `${client.user.avatarURL()}`)
+        .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
         if(!user.player.stats.Bedwars) {
             embed.setDescription(`**Bedwars**\nCould not retrieve **Bedwars** Stats for this user, maybe he/she never joined a Bedwars game!`);
             return message.channel.send(embed);
@@ -122,7 +113,4 @@ module.exports = {
 
         message.channel.send(bEmbed);
 
-    });
-
-    })
 }}
