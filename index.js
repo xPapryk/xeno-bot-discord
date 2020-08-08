@@ -86,4 +86,4 @@ client.on('ready', s => {
         .catch(console.error);
 });
 
-client.login(process.env.token);
+client.login(process.env.token); 
