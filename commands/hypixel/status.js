@@ -16,10 +16,10 @@ module.exports = {
                 if(res.session.online === "true") {
                     let onlineEmbed = new MessageEmbed()
                     .setColor("#27ae60")
-                    .setTitle(`${mcPlayer}'s Hypixel's status`)
-                    .setURL(`https://namemc.com/search?q=${mcPlayer}`)
+                    .setTitle(`${args[0]}'s Hypixel's status`)
+                    .setURL(`https://namemc.com/search?q=${args[0]}`)
                     .addField('**Status:**', "Online")
-                    .setThumbnail(`https://visage.surgeplay.com/full/512/${uuid}`)
+                    .setThumbnail(`https://visage.surgeplay.com/full/512/${uRes.id}`)
                     .setTimestamp()
                     .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
     
@@ -27,10 +27,10 @@ module.exports = {
                 } else {
                     let offlineEmbed = new MessageEmbed()
                     .setColor("#c0392b")
-                    .setTitle(`${mcPlayer}'s Hypixel's status`)
-                    .setURL(`https://namemc.com/search?q=${mcPlayer}`)
+                    .setTitle(`${args[1]}'s Hypixel's status`)
+                    .setURL(`https://namemc.com/search?q=${args[0]}`)
                     .addField('**Status:**', "Offline")
-                    .setThumbnail(`https://visage.surgeplay.com/full/512/${uuid}`)
+                    .setThumbnail(`https://visage.surgeplay.com/full/512/${uRes.id}`)
                     .setTimestamp()
                     .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
     
