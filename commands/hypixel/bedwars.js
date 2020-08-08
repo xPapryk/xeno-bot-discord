@@ -15,7 +15,7 @@ module.exports = {
 
         const url = `https://api.hypixel.net/player?key=2441ceef-7c75-4fd8-a6c8-b6f093a2ca94&uuid=${uRes.id}`
 
-        function minecraftColorToHex(colorname) {
+        /*function minecraftColorToHex(colorname) {
             switch(colorname) {
                 case "BLACK":
                     return "#000000";
@@ -111,6 +111,6 @@ module.exports = {
             {name: `**Coins**`, value: `${user.player.stats.Bedwars.coins}`, inline: true}
         )
 
-        message.channel.send(bEmbed);
+        message.channel.send(bEmbed);*/
 
 }}
