@@ -112,6 +112,6 @@ module.exports = {
             {name: `**Coins**`, value: `${res.player.stats.Bedwars.coins}`, inline: true}
         )
 
-        message.channel.send(bEmbed);*/
+        message.channel.send(bEmbed);
 
 }}
