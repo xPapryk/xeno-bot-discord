@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const beautify = require("beautify");
 
 module.exports = {
     name: "eval",
@@ -33,7 +34,7 @@ module.exports = {
             .setTimestamp()
             .setFooter("Powered By Xeno", client.user.avatarURL())
             .setTitle("Eval")
-            .addField("To evaluate:", `\`\`\`js\n${args.join(" "), { format: "js" }}\n\`\`\``)
+            .addField("To evaluate:", `\`\`\`js\n${beautify(args.join(" "), { format: "js" })}\`\`\``)
             .addField("Evaluated:", evaluated)
             .addField("Type of:", typeof(evaluated));
 
