@@ -5,7 +5,7 @@ module.exports = {
     name: "eval",
     category: "bot-owner",
     description: "Executes some code for you",
-    usage: "<code to eval>",
+    usage: "eval <code to eval>",
     run: async (client, message, args) => {
 
         let isBotOwner = message.author.id == '342333088573161472';
@@ -46,6 +46,7 @@ module.exports = {
             .setColor("#c0392b")
             .setTimestamp()
             .setFooter("Powered By Xeno", client.user.avatarURL())
+            .setTitle("Error")
             .setDescription(e)
 
 
