@@ -14,13 +14,7 @@ module.exports = {
         }
 
         
-        let isBotOwner = message.author.id == '342333088573161472';
         let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member || message.author;
-
-        if(!isBotOwner) {
-            return message.channel.send("You cannot execute this command.")
-            .then(msg => {msg.delete({ timeout: 5000 })})
-        }
 
         function wait(amount){
             return new Promise((resolve, reject)=>{
