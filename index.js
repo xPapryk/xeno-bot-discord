@@ -48,7 +48,6 @@ client.on("message", async message => {
     if(cmd.length === 0) return;
 
     let command = client.commands.get(cmd);
-    if(!command) command = message.channel.send("This commmand doesn't exist.");    
 
     if(command)
     command.run(client, message, args);
