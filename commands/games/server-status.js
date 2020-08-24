@@ -19,9 +19,12 @@ module.exports = {
         return message.channel.send(usage).then(msg => {msg.delete({ timeout: 5000 })});
         }
 
+        let image = `https://eu.mc-api.net/v3/server/favicon/${args[0]}`
+
         ping(`${args[0]}`, 25565, (error, reponse) => {
             if(error) throw error;
             const serverEmbed = new MessageEmbed()
+            .setThumbnail(image)
             .setColor(`${Math.floor(Math.random()*16777215).toString(16)}`)
             .setTitle('Minecraft Server Status')
             .addField('Server Adress', reponse.host)

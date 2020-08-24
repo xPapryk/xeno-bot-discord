@@ -35,8 +35,8 @@ module.exports = {
         .addField("Account Created On:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")} `, true) 
         .addField('Joined the server At', `${joineddate}\n \u200b`, true)*/
         .addField(`${member.user.tag}'s information`, [
-            `**• Status** ${status}`,
-            `**• Nickname** ${member.nickname}`,
+            `**• Status:** ${status}`,
+            `**• Nickname:** ${member.nickname}`,
             `**• Roles:** <@&${member._roles.join('> <@&')}>`,
             `**• Account Created On:** ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`,
             `**• Joined At:** ${joineddate}`
