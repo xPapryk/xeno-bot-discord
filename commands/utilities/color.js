@@ -13,7 +13,7 @@ module.exports = {
         const url = `https://api.alexflipnote.dev/color/${color}`;
         const res = await fetch(url).then(url => url.json());
 
-        let usage = MesasgeEmbed()
+        let usage = MessageEmbed()
         .setColor("RANDOM")
         .setTimestamp()
         .setFooter("Powered By Xeno", client.user.avatarURL())
