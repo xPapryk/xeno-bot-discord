@@ -44,6 +44,7 @@
     "hypixel-api-nodejs": "^0.1.5",
     "hypixel-api-reborn": "^2.1.2",
     "i": "^0.3.6",
+    "imageapi.js": "^1.0.11",
     "imdb-api": "^4.1.1",
     "indent-string": "^4.0.0",
     "kitsu": "^9.1.13",
