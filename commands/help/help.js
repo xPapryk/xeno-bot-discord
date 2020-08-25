@@ -24,6 +24,7 @@ module.exports = {
             .addField("Utilities", "``calc`` ``hex`` ``covid-19`` ``dm`` ``gif`` ``bin`` ``instagram`` ``length`` ``ping`` ``say`` ``support`` ``weather``")
             .addField("Server and User Info", "``botinfo`` ``serverinfo`` ``avatar`` ``userinfo``")
             .addField("Moderation", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam``")
+            .addField("NSFW", "``ass`` ``pussy``")
 
             message.channel.send(embed)
         }
