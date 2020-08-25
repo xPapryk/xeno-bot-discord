@@ -1,7 +1,5 @@
 const { MessageEmbed } = require('discord.js');
 const fetch = require("node-fetch");
-const bedwarsIMG = require("../../assets/img/bedwars.png");
-
 module.exports = {
     name: "bedwars",
     category: "hypixel",
@@ -91,7 +89,7 @@ module.exports = {
         .setColor(`${tinodata.rank.color}`)
         .setTitle(`${tinodata.rank.displayName} ${args[0]}`)
         .setURL(`https://namemc.com/search?q=${args[0]}`)
-        .setThumbnail(bedwarsIMG)
+        .setThumbnail("https://i.imgur.com/O9Dk8Vi.png")
         .setDescription(`${args[0]}'s Bedwars stats.`)
         .setTimestamp()
         .setFooter("Powered By Xeno", client.user.avatarURL())
