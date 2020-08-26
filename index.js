@@ -68,14 +68,6 @@ client.giveawaysManager = manager;
 
 ;
 
-    const updateUsers = guild => {
-        const channel = guild.channels.cache.get('741195266132279296')
-        channel.setName(`User Count: ${guild.members.cache.filter(member => !member.user.bot).size}`)
-    }
-
-client.on('guildMemberAdd', (member) => updateUsers(member.guild))
-client.on('guildMemberRemove', (member) => updateUsers(member.guild))
-
 
 client.on('ready', s => {
     console.log(`Ready! Connected as ${client.user.username} with prefix '${prefix}'`);

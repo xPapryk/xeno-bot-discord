@@ -1,5 +1,8 @@
 {
-    "REDDIT_SECRET" : {
-        "TOKEN" : "iAcDCGav__6vVX-lN34HrwIQO7I"
+    "REDDIT" : {
+        "USERNAME" : "XENO_EPICRAFTER",
+        "PASSWORD" : "husky2005",
+        "APPID" : "pk6ISlDEzjFfQ",
+        "TOKEN" : "FxijEZQuCipEuHv67z-eSauMhb0"
     }
 }
