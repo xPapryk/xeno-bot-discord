@@ -22,7 +22,7 @@ module.exports = {
             .addField("Hypixel", "``bedwars`` ``skywars`` ``status``")
             .addField("Image Manipulation", "``deepfry`` ``phtext`` ``supreme``")
             .addField("Utilities", "``calc`` ``hex`` ``covid-19`` ``dm`` ``gif`` ``bin`` ``instagram`` ``length`` ``ping`` ``say`` ``support`` ``weather``")
-            .addField("Server and User Info", "``botinfo`` ``serverinfo`` ``avatar`` ``userinfo``")
+            .addField("Server and User Info", "``botinfo`` ``serverinfo`` ``avatar`` ``userinfo`` ``status``")
             .addField("Moderation", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam``")
             /*.addField("NSFW (Only Premium Users)", "``ass`` ``pussy`` ``tits`` ``4k`` ``nsfw``")*/
 
