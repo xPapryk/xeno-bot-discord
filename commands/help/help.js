@@ -20,7 +20,7 @@ module.exports = {
             .addField("Fun", "``8ball`` ``advice`` ``asciify`` ``clyde`` ``decrypt`` ``didumean`` ``emoji`` ``encrypt`` ``facts`` ``flip`` ``fml`` ``gayrate`` ``howdumb`` ``kill`` ``meme`` ``morse`` ``oof`` ``pickup`` ``programming`` ``rate`` ``roll`` ``slap`` ``trump`` ``yomama`` ")
             .addField("Games", "``fortnite`` ``server``")
             .addField("Hypixel", "``bedwars`` ``skywars`` ``status``")
-            .addField("Image Manipulation", "``deepfry`` ``phtext`` ``supreme``")
+            .addField("Image Manipulation", "``deepfry`` ``phtext`` ``supreme`` ``trash``")
             .addField("Utilities", "``calc`` ``hex`` ``covid-19`` ``dm`` ``gif`` ``bin`` ``instagram`` ``length`` ``ping`` ``say`` ``support`` ``weather``")
             .addField("Server and User Info", "``botinfo`` ``serverinfo`` ``avatar`` ``userinfo`` ``status``")
             .addField("Moderation", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam``")
