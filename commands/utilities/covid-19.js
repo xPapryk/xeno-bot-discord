@@ -1,27 +1,66 @@
-const { Message, MessageEmbed } = require('discord.js');
-const indentString = require('indent-string');
+const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
-const moment = require("moment");
 
 module.exports = {
-    name: "covid-19",
+    name: "corona",
     category: "utilities",
-    description: "Returns some statistics about the covid-19",
-    usage: "covid-19",
+    description: "Returns the statistics of covid-19",
+    usage: "corona [country]",
     run: async (client, message, args) => {
 
-        const url = `https://api.covid19api.com/world/total`;
-        const res = await fetch(url).then(url => url.json());
+        if(!args[0]) {
+            
+            const url = 'https://corona.lmao.ninja/v2/all';
+            const res = await fetch(url).then(url => url.json());
 
-        let covidEmbed = new MessageEmbed()
-        .addField("Covid-19 WorldWide Stats:", [
-            `**Total Cases Confirmed** ${res.TotalConfirmed}`,
-            `**Total Deaths:** ${res.TotalDeaths}`,
-            `**Total Recoveries:** ${res.TotalRecovered}`
-        ])
-        .setTimestamp()
-        .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
+            let embed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTimestamp()
+            .setFooter("Powered By Xeno", client.user.avatarURL())
+            .setTitle("Worldwide")
+            .addField("Total Cases:", res.cases, true)
+            .addField("Total Deaths:", res.deaths, true)
+            .addField("Total recoveries:", res.recovered, true)
+            .addField("Todays Cases:", res.todayCases, true)
+            .addField("Todays Deaths:", res.todayDeaths, true)
+            .addField("Active:", res.active, true)
 
-        message.channel.send(covidEmbed);
+            message.channel.send(embed)
+
+        } else {
+            
+            let usage = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTimestamp()
+            .setFooter("Powered By Xeno", client.user.avatarURL())
+            .addField("Missing Country", "Usage: corona [country]")
+
+            const country = args.join(' ');
+            const url = `https://corona.lmao.ninja/v2/countries/${country}`;
+            const res = await fetch(url).then(url => url.json());
+
+            if(res.message) {
+                
+                message.channel.send(usage)
+                .then(msg => {msg.delete({ timeout: 5000})})
+
+            }
+
+            let embed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTimestamp()
+            .setFooter("Powered By Xeno", client.user.avatarURL())
+            .setTitle(res.country)
+            .addField("Total Cases:", res.cases, true)
+            .addField("Total Deaths:", res.deaths, true)
+            .addField("Total recoveries:", res.recovered, true)
+            .addField("Todays Cases:", res.todayCases, true)
+            .addField("Todays Deaths:", res.todayDeaths, true)
+            .addField("Active:", res.active, true)
+
+            message.channel.send(embed)
+
+        }
+
     }
-} 
+}
