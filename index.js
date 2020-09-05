@@ -2,6 +2,7 @@
 const { Client, Message, Discord, RichEmbed, Collection } = require('discord.js');
 const fs = require("fs");
 const { GiveawaysManager } = require("discord-giveaways");
+const db = require("quick.db");
 const client = new Client({
     disableEveryone: true
 });
@@ -75,5 +76,37 @@ client.on('ready', s => {
         .then(presence => console.log(`Activity set to '${presence.activities[0].name}'`))
         .catch(console.error);
 });
+
+client.on('guildMemberAdd', (member) => {
+
+    let chx = db.get(`welchannel_${member.guild.id}`);
+
+    if(chx === null) {
+        return
+    }
+
+    let embed = new MessageEmbed()
+    .setColor("#2980b9")
+    .setDescription(`**${member.user.tag}** joined the server`)
+
+    client.channels.cache.get(chx).send(embed)
+
+})
+
+client.on('guildMemberRemove', (member) => {
+
+    let chx = db.get(`welchannel_${member.guild.id}`);
+
+    if(chx === null) {
+        return
+    }
+
+    let embed = new MessageEmbed()
+    .setColor("#c0392b")
+    .setDescription(`**${member.user.tag}** left the server`)
+
+    client.channels.cache.get(chx).send(embed)
+
+})
 
 client.login(process.env.token); 
