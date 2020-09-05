@@ -4,7 +4,8 @@ const { MessageAttachment } = require("discord.js");
 module.exports = {
     name: "trash",
     category: "image-manipulation",
-    description: ""
+    description: "Trash somebody",
+    usage: "trash [@member]",
     run: async (client, message, args) => {
 
         let userArray = message.content.split(" ");
