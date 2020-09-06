@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { get } = require("request-promise-native");
+const get = require("request-promise-native");
 
 module.exports = {
     name: "anime",
