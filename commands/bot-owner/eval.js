@@ -50,7 +50,7 @@ module.exports = {
             .setDescription(e)
 
 
-            messsage.channel.send(embed)
+            message.channel.send(embed)
         }
 
     }
