@@ -41,7 +41,7 @@ module.exports = {
 
             if(res.message) {
                 
-                message.channel.send(usage)
+                return message.channel.send(usage)
                 .then(msg => {msg.delete({ timeout: 5000})})
 
             }

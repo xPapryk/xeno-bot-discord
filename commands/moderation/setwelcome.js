@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+/*const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
 
 module.exports = {
@@ -18,12 +18,12 @@ module.exports = {
         if(!message.member.hasPermission("MANAGE_CHANNELS"))usage.addField("Missing Permission", "You can't use this command")
 
         if(!channel) {
-            message.channel.send(usage)
+            return message.channel.send(usage)
             .then(msg => {msg.delete({ timeout: 5000 })})
         }
 
         if(!message.member.hasPermission("MANAGE_CHANNELS")) {
-            message.channel.send(usage)
+            return message.channel.send(usage)
             .then(msg => {msg.delete({ timeout: 5000 })})
         }
         
@@ -32,4 +32,4 @@ module.exports = {
         message.channel.send(`Welcome Channel is set to ${channel}`)
 
     }
-}
+}*/
