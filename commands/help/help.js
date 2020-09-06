@@ -17,7 +17,7 @@ module.exports = {
             .setFooter("Powered By Xeno", client.user.avatarURL())
             .setTitle("Help")
             .setDescription("This is a list of commands you can use. You can get more info about a specific command by using ``help <command>`` ``(e.g. help say)``.")
-            .addField("Fun", "``8ball`` ``advice`` ``asciify`` ``clyde`` ``decrypt`` ``didumean`` ``emoji`` ``encrypt`` ``facts`` ``flip`` ``fml`` ``gayrate`` ``howdumb`` ``kill`` ``meme`` ``morse`` ``oof`` ``pickup`` ``programming`` ``rate`` ``roll`` ``slap`` ``trump`` ``yomama`` ")
+            .addField("Fun", "``8ball`` ``advice`` ``anime`` ``asciify`` ``clyde`` ``decrypt`` ``didumean`` ``emoji`` ``encrypt`` ``facts`` ``flip`` ``fml`` ``gayrate`` ``howdumb`` ``kill`` ``meme`` ``morse`` ``oof`` ``pickup`` ``programming`` ``rate`` ``roll`` ``slap`` ``trump`` ``yomama`` ")
             .addField("Games", "``fortnite`` ``server``")
             .addField("Hypixel", "``bedwars`` ``skywars`` ``status``")
             .addField("Image Manipulation", "``deepfry`` ``phtext`` ``supreme`` ``trash``")
