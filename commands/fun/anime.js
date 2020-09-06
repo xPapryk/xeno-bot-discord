@@ -3,6 +3,9 @@ const { get } = require("request-promise-native");
 
 module.exports = {
     name: "anime",
+    category: "fun",
+    description: "Returns information about an anime",
+    usage: "anime <anime>",
     run: async (client, message, args) => {
 
         let anime = args.join(' ');
