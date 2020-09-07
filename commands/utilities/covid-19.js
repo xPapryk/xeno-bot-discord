@@ -50,6 +50,7 @@ module.exports = {
             .setColor("RANDOM")
             .setTimestamp()
             .setFooter("Powered By Xeno", client.user.avatarURL())
+            .setThumbnail(res.countryInfo.flag)
             .setTitle(res.country)
             .addField("Total Cases:", res.cases, true)
             .addField("Total Deaths:", res.deaths, true)
