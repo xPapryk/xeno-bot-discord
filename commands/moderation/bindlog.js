@@ -27,7 +27,7 @@ module.exports ={
             .then(msg => {msg.delete({ timeout: 5000 })})
         }
 
-        message.channel.send(`Logs will not be sent in **<#${channel.id}>**`)
+        message.channel.send(`Logs will now be sent in **<#${channel.id}>**`)
 
         db.set(`_log_${message.guild.id}`, channel.id)
 
