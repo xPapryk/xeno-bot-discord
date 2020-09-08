@@ -21,9 +21,9 @@ module.exports = {
             .addField("Games", "``fortnite`` ``server``")
             .addField("Hypixel", "``bedwars`` ``skywars`` ``status``")
             .addField("Image Manipulation", "``deepfry`` ``phtext`` ``supreme`` ``trash``")
-            .addField("Utilities", "``calc`` ``hex`` ``corona`` ``dm`` ``gif`` ``bin`` ``instagram`` ``length`` ``ping`` ``say`` ``support`` ``weather``")
+            .addField("Utilities", "``calc`` ``hex`` ``corona`` ``dm`` ``gif`` ``bin`` ``instagram`` ``length`` ``ping`` ``say`` ``support`` ``weather`` ``report``")
             .addField("Server and User Info", "``botinfo`` ``serverinfo`` ``avatar`` ``userinfo`` ``status``")
-            .addField("Moderation", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam`` ``warn`` ``warnings`` ``delwarn``")
+            .addField("Moderation", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam`` ``warn`` ``warnings`` ``delwarn`` ``bindlog``")
             /*.addField("NSFW (Only Premium Users)", "``ass`` ``pussy`` ``tits`` ``4k`` ``nsfw``")*/
 
             message.channel.send(embed)
