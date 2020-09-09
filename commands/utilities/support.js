@@ -8,13 +8,10 @@ module.exports = {
     run: async (client, message, args) => {
 
         let inviteEmbed = new MessageEmbed()
-        .setColor("#00cec9")
-        .setThumbnail(`${client.user.avatarURL()}`)
-        .setTitle("Usefull Links:")
-        .addField("Xeno Bot", `[Click Here](https://discord.com/api/oauth2/authorize?client_id=505454012481667072&permissions=2147483639&scope=bot)`)
-        .addField("Xeno Support Server", `[Click Here](https://discord.gg/XVyw2Jd)`)
+        .setColor("RANDOM")
         .setTimestamp()
-        .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
+        .setFooter("Powered By Xeno", client.user.avatarURL())
+        .setDescription(`To add the bot to your server [click here](https://discord.com/api/oauth2/authorize?client_id=505454012481667072&permissions=2147483639&scope=bot). To join our discord server [click here](https://discord.gg/XVyw2Jd)`)
 
         message.channel.send(inviteEmbed);
     }
