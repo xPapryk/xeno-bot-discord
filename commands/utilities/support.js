@@ -10,11 +10,9 @@ module.exports = {
         let inviteEmbed = new MessageEmbed()
         .setColor("#00cec9")
         .setThumbnail(`${client.user.avatarURL()}`)
-        .setTitle("Xeno Bot Invite")
-        .addField("**Links**", [
-            `[Xeno Bot](https://discord.com/api/oauth2/authorize?client_id=505454012481667072&permissions=2147483639&scope=bot)`,
-            `[Xeno Support Server](https://discord.gg/XVyw2Jd)`
-        ])
+        .setTitle("Usefull Links:")
+        .addField("Xeno Bot", `[Click Here](https://discord.com/api/oauth2/authorize?client_id=505454012481667072&permissions=2147483639&scope=bot)`)
+        .addField("Xeno Support Server", `[Click Here](https://discord.gg/XVyw2Jd)`)
         .setTimestamp()
         .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
 
