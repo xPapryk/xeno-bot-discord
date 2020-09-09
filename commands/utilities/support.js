@@ -3,7 +3,7 @@ const { Message, MessageEmbed } = require('discord.js');
 module.exports = {
     name: "support",
     category: "utilities",
-    description: "Bot support links",
+    description: "Bot usefull links",
     usage: "support",
     run: async (client, message, args) => {
 
