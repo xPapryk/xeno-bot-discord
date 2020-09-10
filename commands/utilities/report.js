@@ -6,6 +6,7 @@ module.exports = {
     category: "utilities",
     description: "Report the mentionned user to Staff",
     usage: "report <@user> <reason>",
+    yo: "yo",
     run: async (client, message, args) => {
 
         if(message.deletable) {
