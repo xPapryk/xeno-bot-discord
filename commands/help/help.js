@@ -26,8 +26,7 @@ module.exports = {
             .addField("Nsfw:", "``hboobs``")
             .addField("Moderation:", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam`` ``warn`` ``warnings`` ``delwarn``")
             .addField("Configuration:", "``bindlog`` ``nsfw`` ``setwelcome``")
-            .addField("Developer:", "``setgame``")
-            .addField("Bot Owner:", "``eval`` ``spam`` ``stop``")
+            .addField("Bot Owner:", "``eval`` ``spam`` ``setgame`` `stop``")
             /*.addField("NSFW (Only Premium Users)", "``ass`` ``pussy`` ``tits`` ``4k`` ``nsfw``")*/
 
             message.channel.send(embed)
