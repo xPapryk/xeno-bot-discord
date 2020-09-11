@@ -9,7 +9,6 @@ module.exports = {
     run: async (client, message, args) => {
 
         let ratus = message.mentions.members.first() || message.author;
-        if(!ratus) return message.channel.send("Tag someone to dumratethem!");
 
         let gayrate = Math.floor(Math.random() * 101);
 

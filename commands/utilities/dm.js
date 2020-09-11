@@ -9,11 +9,6 @@ module.exports = {
 
         message.delete();
 
-        if(!message.member.hasPermission("MANAGE_MESSAGE")) {
-            return message.reply("You can't use this command...")
-            .then(msg => {msg.delete({ timeout: 5000 })});
-        }
-
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
         let dm = args.slice(1).join(" ");
 

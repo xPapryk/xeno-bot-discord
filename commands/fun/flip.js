@@ -13,7 +13,7 @@ module.exports = {
     .setColor("RANDOM")
     .setTimestamp()
     .setFooter("Powered By Xeno", client.user.avatarURL())
-    .addField("Missing Text", "Usage: flip <text>")
+    .addField("Missing Text to Flip", "Usage: flip <text>")
     
     if(!args[0]) {
         return message.channel.send("You must provide text to flip!")

@@ -7,8 +7,7 @@ module.exports = {
     description: "Give you a random fact",
     usage: "fact",
     run: async (client, message, args) => {
-
-
+        
         const url = `https://uselessfacts.jsph.pl/random.json?language=en`;
         const res = await fetch(url).then(url => url.json());
         

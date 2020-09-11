@@ -25,7 +25,7 @@ module.exports = {
 
         let usage = new MessageEmbed()
         .setColor("RANDOM")
-        .addField("Missing User", "Usage: slap <@user>")
+        .addField("Missing User to Slap", "Usage: slap <@user>")
         .setTimestamp()
         .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
 

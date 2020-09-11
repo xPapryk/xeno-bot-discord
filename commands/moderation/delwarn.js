@@ -15,7 +15,7 @@ module.exports = {
         .setTimestamp()
         .setFooter("Powered By Xeno", client.user.avatarURL())
         if(!user)usage.addField("Missing User", "Usage: delwarn <@user>")
-        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Missing Permissions", "You cannot execute this command")
+        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Missing Permissions", "``MANAGE_MESSAGES``")
 
         if(!user) {
             return message.channel.send(usage).then(msg => {msg.delete({ timeout: 5000 })})

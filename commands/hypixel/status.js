@@ -4,9 +4,19 @@ const fetch = require("node-fetch");
 module.exports = {
     name: "status",
     category: "hypixel",
-    description: "Get's the status of a player on the Hypixel server",
+    description: "Get's the status of a Hypixel player",
     usage: "status <player>",
     run: async (client, message, args) => {
+
+        let usage = new MessageEmbed()
+        .setColor("RANDOM")
+        .setTimestamp()
+        .setFooter("Powered By Xeno", client.user.avatarURL())
+        .addField("Missing Player's Username", "Usage: status <username>")
+
+        if(!args[0]) {
+            return message.channel.send(usage).then(msg => {msg.delete({ timeout: 5000 })})
+        }
 
         const uUrl = `https://api.mojang.com/users/profiles/minecraft/${args[0]}`;
         const uRes = await fetch(uUrl).then(uUrl => uUrl.json());

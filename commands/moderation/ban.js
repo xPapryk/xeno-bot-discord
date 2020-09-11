@@ -13,11 +13,11 @@ module.exports = {
 
         let usage = new MessageEmbed()
         .setColor("RANDOM")
-        if(!message.member.hasPermission("BAN_MEMBERS"))usage.addField("Your Missing the ``BAN_MEMBERS`` Permission", "You can't delete messages.")
-        if(!message.guild.me.hasPermission("BAN_MEMBERS"))usage.addField("I Am Missing the ``BAN_MEMBERS`` Permission", "I can't kick members.")
+        if(!message.member.hasPermission("BAN_MEMBERS"))usage.addField("Missing Permission", "``BAN_MEMBERS``")
+        if(!message.guild.me.hasPermission("BAN_MEMBERS"))usage.addField("I am Missing a Permission", "``BAN_MEMBERS``")
         if(!member)usage.addField("Missing User:", "Usage: ban <@user> <reason>")
         /*if(!member.kickable)usage.addField("Error:", "This member can't be kicked.")*/
-        if(!member === message.author.id)usage.addField("Eroor:", "You can't ban yourself.")
+        if(!member === message.author.id)usage.addField("Error:", "You can't ban yourself.")
         if(!reason)usage.addField("Missing Reason", "Usage: ban <@user> <reason>")
 
         if(!message.member.hasPermission("BAN_MEMBERS")) {

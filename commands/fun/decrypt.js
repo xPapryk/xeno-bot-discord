@@ -13,7 +13,6 @@ module.exports = {
         let demsg = args.join(" ");
 
         let usage = new MessageEmbed()
-        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Your Missing Permission: ``MANAGE_MESSAGES``", "You do not have the permissions required to make an annoucement.")
         if(!demsg)usage.addField("Missing Encrypted Message", "Usage: decrypt <encrypted message>")
 
         if(!demsg) {

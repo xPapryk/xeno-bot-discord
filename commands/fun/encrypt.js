@@ -14,7 +14,7 @@ module.exports = {
         const encryptedString = cryptr.encrypt(msg);
 
         let usage = new MessageEmbed()
-        .addField("Missing Text", "Usage: encrypt <text>")
+        .addField("Missing Text to Encrypt", "Usage: encrypt <text>")
 
         if(!msg) {
             return message.channel.send(usage)

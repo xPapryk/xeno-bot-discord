@@ -6,14 +6,14 @@ module.exports = {
     name: "server",
     category: "games",
     description: "Get the status of a server with some additional information",
-    usage: "server <ip adress>",
+    usage: "server <ip address>",
     run: async (client, message, args) => {
 
         let usage = new MessageEmbed()
         .setColor("RANDOM")
         .setTimestamp()
         .setFooter("Powered By Xeno", client.user.avatarURL())
-        .addField("Missing IP Adress", "Usage: server <ip adress>")
+        .addField("Missing IP Address", "Usage: server <ip address>")
 
         if(!args[0]){
         return message.channel.send(usage).then(msg => {msg.delete({ timeout: 5000 })});

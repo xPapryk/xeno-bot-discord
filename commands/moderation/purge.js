@@ -14,8 +14,7 @@ module.exports = {
 
         let usage = new MessageEmbed()
         .setColor("RANDOM")
-        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Your Missing the ``MANAGE_MESSAGES`` Permission", "You can't delete messages.")
-        if(!message.guild.me.hasPermission("MANAGE_MESSAGES"))usage.addField("I am Missing the ``MANAGE_MESSAGES`` Permission", "I can't delete messages")
+        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Missing Permission", "``MANAGE_MESSAGES")
         if(isNaN(args[0]) || parseInt(args[0]) <= 0)usage.addField("Unvalid number", "Usage: purge <number of messages>")
 
         if(!message.member.hasPermission("MANAGE_MESSAGES")) {

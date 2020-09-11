@@ -8,7 +8,7 @@ module.exports = {
     usage: "rate [@member]",
     run: async (client, message, args) => {
 
-        let ratus = message.mentions.members.first();
+        let ratus = message.mentions.members.first() || message.author;
 
         let rates = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 

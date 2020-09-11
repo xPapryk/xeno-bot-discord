@@ -14,8 +14,8 @@ module.exports = {
         let usage = new MessageEmbed()
         .setColor("RANDOM")
         if(!id)usage.addField("Missing Channel ID", "Usage: announce <channel id> <message>")
-        if(!annoucement)usage.addField("Missing Message", "Usage: announce <channel id> <message>")
-        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Your Missing the ``MANAGE_MESSAGES`` Permission", "You do not have the permissions required to make an annoucement.")
+        if(!annoucement)usage.addField("Missing Announcement Message", "Usage: announce <channel id> <message>")
+        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Missing Permission", "``MANAGE_MESSAGES``")
 
         if(!message.member.hasPermission("MANAGE_MESSAGES")) {
             return message.channel.send(usage)

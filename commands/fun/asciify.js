@@ -1,4 +1,4 @@
-const  { MessagEmbed } = require("discord.js");
+const  { MessageEmbed } = require("discord.js");
 const figlet = require("figlet");
 
 module.exports = {
@@ -9,6 +9,16 @@ module.exports = {
     run: async (client, message, args) => {
 
         const text = args.join(" ");
+
+        let usage = new MessageEmbed()
+        .setColor("RANDOM")
+        .setTimestamp()
+        .setFooter("Powered By Xeno", client.user.avatarURL())
+        .addField("Missing Text", "Usage: asciify <text>")
+
+        if(!text) {
+            return message.channel.send(usage).then(msg => {msg.delete({ timeout: 5000 })})
+        }
 
         const bigText = figlet.textSync(text, {
             font: 'Ghost',

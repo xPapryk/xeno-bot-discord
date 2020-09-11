@@ -15,7 +15,7 @@ module.exports = {
         .setColor("RANDOM")
         .setTimestamp()
         .setFooter("Powered By Xeno", client.user.avatarURL())
-        if(!expression)usage.addField("Missing Expression", "Usage: calc <expression>")
+        if(!expression)usage.addField("Missing Math Expression", "Usage: calc <expression>")
         /*if(isNaN(args.join(" ")))usage.addField("Invalid Number", "Usage: x!calc <expression>")*/
 
         if(!expression) {

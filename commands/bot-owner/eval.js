@@ -14,12 +14,19 @@ module.exports = {
         .setColor("RANDOM")
         .setTimestamp()
         .setFooter("Powered By Xeno", client.user.avatarURL())
-        if(!isBotOwner)usage.addField("Missing Permissions", "You need to be the bot owner to be able to execute this command")
+        if(!isBotOwner)usage.addField("Missing Permissions", "Only the ``Bot Owner`` can execute this command")
+        if(!args.join(' '))usage.addField("Missing Code to Eval", "Usage: eval <code to eval>")
 
         if(!isBotOwner) {
         return message.channel.send(usage)
         .then(msg => {msg.delete({ timeout: 5000 })})
         }
+
+        if(!args.join(' ')) {
+            return message.channel.send(usage)
+            .then(msg => {msg.delete({ timeout: 5000 })})
+            }
+    
 
         try {
             if (args.join(" ").toLowerCase().includes("token")) {

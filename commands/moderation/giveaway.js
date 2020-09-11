@@ -16,10 +16,10 @@ module.exports = {
 
         let usage = new MessageEmbed()
         .setColor("RANDOM")
-        if(!time)usage.addField("Missing Duration", "Usage: x!giveaway <duration> <channel> <prize>")
+        if(!time)usage.addField("Missing Giveaway Duration", "Usage: x!giveaway <duration> <channel> <prize>")
         if(!channel)usage.addField("Missing Channel ID", "Usage: x!giveaway <duration> <channel> <prize>")
-        if(!prize)usage.addField("Missing Prize", "Usage: x!giveaway <duration> <channel> <prize>")
-        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Your Missing the ``MANAGE_MESSAGES`` Permission", "You can't create giveaways.")
+        if(!prize)usage.addField("Missing Giveaway Prize", "Usage: x!giveaway <duration> <channel> <prize>")
+        if(!message.member.hasPermission("MANAGE_MESSAGES"))usage.addField("Missing Permission", "``MANAGE_MESSAGES``")
 
         if(!time) {
             return message.channel.send(usage)
