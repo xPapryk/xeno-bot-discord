@@ -21,9 +21,11 @@ module.exports = {
             .addField("Games:", "``fortnite`` ``server``")
             .addField("Hypixel:", "``bedwars`` ``skywars`` ``status``")
             .addField("Image Manipulation:", "``deepfry`` ``phtext`` ``supreme`` ``trash``")
-            .addField("Info:", "``avatar`` ``botinfo`` ``color`` ``corona`` ``instagram`` ``length`` ``ping`` ``serverinfo`` ``status`` ``support`` ``userinfo`` ``weather``")
+            .addField("Info:", "``avatar`` ``botinfo`` ``checknsfw`` ``color`` ``corona`` ``instagram`` ``length`` ``ping`` ``serverinfo`` ``status`` ``support`` ``userinfo`` ``weather``")
             .addField("Utilities:", "``apply`` ``calc`` ``dm`` ``gif`` ``bin`` ``report`` ``say`` ``shorten`` ``suggest`` ``translate``")
-            .addField("Moderation:", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam`` ``warn`` ``warnings`` ``delwarn`` ``bindlog``")
+            .addField("Nsfw:", "``hboobs``")
+            .addField("Moderation:", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam`` ``warn`` ``warnings`` ``delwarn``")
+            .addField("Configuration:", "``bindlog`` ``nsfw`` ``setwelcome``")
             .addField("Developer:", "``setgame``")
             .addField("Bot Owner:", "``eval`` ``spam`` ``stop``")
             /*.addField("NSFW (Only Premium Users)", "``ass`` ``pussy`` ``tits`` ``4k`` ``nsfw``")*/
