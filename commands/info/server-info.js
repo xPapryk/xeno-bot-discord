@@ -13,14 +13,15 @@ module.exports = {
         .setTimestamp()
         .setColor("RANDOM")
         .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
-        .addField('General Information', [
-        `**• Name:** ${message.guild.name}`,
-        `**• ID:** ${message.guild.id}`,
-        `**• Owner:** ${message.guild.owner}`,
-        `**• Region:** ${message.guild.region}`,
-        `**• Members:** ${message.guild.memberCount}`
-        
-        ])
+        .addField('Server Name', message.guild.name, true)
+        .addField('Server ID', message.guild.id, true)
+        .addField('\u200b', '\u200b', true)
+        .addField("Owner", message.guild.owner, true)
+        .addField('Highest Role', message.guild.roles.highest, true)
+        .addField('\u200b', '\u200b', true)
+        .addField("Members", message.guild.memberCount, true)
+        .addField("Region", message.guild.region, true)
+        .addField('\u200b', '\u200b', true)
 
         message.channel.send(serverEmbed);
 
