@@ -1,5 +1,6 @@
 const { Message, MessageEmbed } = require('discord.js');
 const moment = require('moment');
+let db = require("quick.db");
 
 module.exports = {
     name: "userinfo",
@@ -30,17 +31,23 @@ module.exports = {
         .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
         .setThumbnail(member.user.displayAvatarURL())
         .setColor("RANDOM")
-        /*.addField("Status", status)
-        .addField(`Roles`, `<@&${member._roles.join('> <@&')}>`)
-        .addField("Account Created On:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")} `, true) 
-        .addField('Joined the server At', `${joineddate}\n \u200b`, true)*/
-        .addField(`${member.user.tag}'s information`, [
-            `**• Status:** ${status}`,
-            `**• Nickname:** ${member.nickname}`,
-            `**• Roles:** <@&${member._roles.join('> <@&')}>`,
-            `**• Account Created On:** ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`,
-            `**• Joined At:** ${joineddate}`
-            ])
+        .addField("User", member.user.tag, true)
+        .addField("User ID", member.user.id, true)
+        .addField('\u200b', '\u200b', true)
+        .addField("Account Creation", moment.utc(member.user.createdAt).format("MMMM Do YYYY"), true)
+        .addField("Joined On", joineddate, true)
+        .addField('\u200b', '\u200b', true)
+        .addField("Status", status, true)
+        .addField("Highest Role", member.roles.highest, true)
+        .addField('\u200b', '\u200b', true)
+
+        if(db.get(`_yt_${member.user.id}`)) {
+
+            let channel = db.get(`_yt_${member.user.id}`)
+
+            whoEmbed.addField('Youtube Channel', channel, true)
+
+        }
 
         message.channel.send(whoEmbed);
 

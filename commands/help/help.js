@@ -22,7 +22,7 @@ module.exports = {
             .addField("Hypixel:", "``bedwars`` ``skywars`` ``status``")
             .addField("Image Manipulation:", "``deepfry`` ``phtext`` ``supreme`` ``trash``")
             .addField("Info:", "``avatar`` ``botinfo`` ``checknsfw`` ``color`` ``corona`` ``instagram`` ``length`` ``ping`` ``serverinfo`` ``status`` ``support`` ``userinfo`` ``weather``")
-            .addField("Utilities:", "``apply`` ``calc`` ``dm`` ``gif`` ``bin`` ``report`` ``say`` ``shorten`` ``suggest`` ``translate``")
+            .addField("Utilities:", "``apply`` ``bindyt`` ``calc`` ``dm`` ``gif`` ``bin`` ``report`` ``say`` ``shorten`` ``suggest`` ``translate``")
             .addField("Nsfw:", "``hanal`` ``hboobs`` ``hpussy`` ``kitsune`` ``neko``")
             .addField("Moderation:", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam`` ``warn`` ``warnings`` ``delwarn``")
             .addField("Configuration:", "``bindlog`` ``nsfw`` ``setwelcome``")
