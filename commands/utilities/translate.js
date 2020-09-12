@@ -40,7 +40,7 @@ module.exports = {
             let embed = new MessageEmbed()
             .setColor("RANDOM")
             .addField(`Translated from: [ ${lang.toUpperCase()} ]`, `${text}`, true)
-            .addField(`Translate to: [ ${toLang.toUpperCase()} ]`, res.text, true)
+            .addField(`Translated to: [ ${toLang.toUpperCase()} ]`, res.text, true)
 
             message.channel.send(embed)
 
