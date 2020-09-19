@@ -37,7 +37,7 @@ module.exports = {
         let embed = new MessageEmbed()
         .setColor("RANDOM")
         .setImage(slaps[Math.floor(Math.random() * slaps.length)])
-        .setDescription(`${message.author.username} slapped ${user.username}`)
+        .setTitle(`${message.author.username} slapped ${user.username}`)
         .setTimestamp()
         .setFooter("Powered By Xeno", `${client.user.avatarURL()}`)
 
