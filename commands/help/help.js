@@ -24,7 +24,7 @@ module.exports = {
             .addField("Info:", "``avatar`` ``botinfo`` ``checknsfw`` ``color`` ``corona`` ``instagram`` ``length`` ``ping`` ``serverinfo`` ``status`` ``support`` ``userinfo`` ``weather``")
             .addField("Utilities:", "``apply`` ``bindyt`` ``calc`` ``dm`` ``gif`` ``bin`` ``report`` ``say`` ``shorten`` ``suggest`` ``translate``")
             .addField("Nsfw:", "``hanal`` ``hboobs`` ``hpussy`` ``kitsune`` ``neko``")
-            .addField("Moderation:", "``announce`` ``ban`` ``giveaway`` ``kick`` ``purge`` ``spam`` ``warn`` ``warnings`` ``delwarn``")
+            .addField("Moderation:", "``announce`` ``ban`` ``giveaway`` ``kick`` ``mute`` ``purge`` ``unmute`` ``spam`` ``warn`` ``warnings`` ``delwarn``")
             .addField("Configuration:", "``bindlog`` ``nsfw`` ``setwelcome``")
             .addField("Bot Owner:", "``eval`` ``spam`` ``setgame`` ``stop``")
             /*.addField("NSFW (Only Premium Users)", "``ass`` ``pussy`` ``tits`` ``4k`` ``nsfw``")*/
