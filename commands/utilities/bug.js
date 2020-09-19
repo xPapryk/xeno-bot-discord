@@ -27,7 +27,7 @@ module.exports = {
         .setColor("RANDOM")
         .setDescription(`New bug reported by <@${message.author.id}>:\n${bug}`)
 
-        client.users.cache.get('342333088573161472').send(embed).then(msg => msg.react('✅'))
+        client.users.cache.get('342333088573161472').send(embed).then(msg => msg.react('✅'));
 
         message.channel.send(`Bug was successfully reported to the technical team.`)
 
